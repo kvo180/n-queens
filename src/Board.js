@@ -175,7 +175,7 @@
       var size = this.get('n');
       var rows = this.rows();
       for (rowIdx, colIdx; rowIdx < size && colIdx >= 0; rowIdx++, colIdx--) {
-        if (rowIdx >= 0 && colIdx >= 0) {
+        if (rowIdx >= 0 && colIdx >= 0 && colIdx < size) {
           count += rows[rowIdx][colIdx];
         }
       }
