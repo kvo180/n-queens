@@ -16,41 +16,27 @@
 
 
 window.findNRooksSolution = function(n) {
-  // create an empty nxn array Board
-  //create a function that takes in a rowIdx and colIdx
-    //iterate over colIdx
-      //iterate over rowIdx
-        // toggle element at [rowIdx][colIdx]
-        //increment rookCount
-        //toggle element at each iteration
-          //call hasRook conflict on current outcome
-          //if conflict
-            //toggle element back
-          //else
-            //increment rookCount
-    //after iteration ends if rookCount === n
-        //return solution 
-var solution; //fixme
-var rookCount = 0;
-var board = new Board({n:n});
-    for (var rowIdx = 0; rowIdx < n; rowIdx++){
-      for (var colIdx = 0; colIdx < n; colIdx++){
-          board.togglePiece(rowIdx,colIdx);
-          if(!board.hasAnyRooksConflicts()){
-            rookCount++;
-          }
-          else{
-            board.togglePiece(rowIdx,colIdx);
-          }
+  var solution; 
+  var rookCount = 0;
+  var board = new Board({n: n});
+  for (var rowIdx = 0; rowIdx < n; rowIdx++) {
+    for (var colIdx = 0; colIdx < n; colIdx++) {
+      board.togglePiece(rowIdx, colIdx);
+      if (!board.hasAnyRooksConflicts()) {
+        rookCount++;
+      
+      } else {
+        board.togglePiece(rowIdx, colIdx);
+      }
         
-        if(rookCount === n){
-          solution = board.rows();
-        }
+      if (rookCount === n) {
+        solution = board.rows();
       }
     }
-    if(rookCount !== n){
-      solution = undefined;
-    }
+  }
+  if (rookCount !== n) {
+    solution = undefined;
+  }
 
 
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
@@ -60,7 +46,7 @@ var board = new Board({n:n});
 // return the number of nxn chessboards that exist, with n rooks placed such that none of them can attack each other
 window.countNRooksSolutions = function(n) {
   var solutionCount = undefined; //fixme
-  
+
   console.log('Number of solutions for ' + n + ' rooks:', solutionCount);
   return solutionCount;
 };
