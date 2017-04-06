@@ -16,7 +16,7 @@
 
 
 window.findNRooksSolution = function(n) {
-  var solution;
+  var solution; 
   var rookCount = 0;
   var board = new Board({n: n});
   for (var rowIdx = 0; rowIdx < n; rowIdx++) {
@@ -27,7 +27,7 @@ window.findNRooksSolution = function(n) {
       } else {
         board.togglePiece(rowIdx, colIdx);
       }
-      
+        
       if (rookCount === n) {
         solution = board.rows();
       }
